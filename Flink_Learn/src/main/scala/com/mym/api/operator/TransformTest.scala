@@ -1,6 +1,7 @@
 package com.mym.api.operator
 
 import com.mym.api.source.SensorReading
+import org.apache.flink.api.common.functions.{FilterFunction, RichMapFunction}
 import org.apache.flink.streaming.api.scala._
 
 /**
@@ -67,8 +68,21 @@ object TransformTest {
 
 
     // 函数
+    dataStream.filter(new MyFilter()).print("MyFilter")
 
     env.execute()
   }
 
+}
+
+class MyFilter() extends FilterFunction[SensorReading]{
+  override def filter(t: SensorReading): Boolean = {
+    t.id.startsWith("sensor_1")
+  }
+}
+
+class MyMapper() extends RichMapFunction[SensorReading, String]{
+  override def map(in: SensorReading): String = {
+    "flink"
+  }
 }
