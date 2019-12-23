@@ -11,6 +11,7 @@
     <modules>
         <module>Flink_User_Behavior_HotItems_Analysis</module>
         <module>Flink_Network_Flow_Analysis</module>
+        <module>Flink_Market_Analysis</module>
     </modules>
 
     <properties>
