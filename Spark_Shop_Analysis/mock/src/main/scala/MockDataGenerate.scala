@@ -168,6 +168,7 @@ object MockDataGenerate {
 
     // 模拟数据
     val userVisitActionData = this.mockUserVisitActionData()
+    userVisitActionData.foreach(println(_))
     val userInfoData = this.mockUserInfo()
     val productInfoData = this.mockProductInfo()
 
